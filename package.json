@@ -1,0 +1,28 @@
+{
+  "name": "simpleschat",
+  "version": "0.0.1",
+  "description": "Simple Chat using Socket.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamirRodrigues/SimpleChat.git"
+  },
+  "keywords": [
+    "Socket.io",
+    "Chat",
+    "Express",
+    "NodeJS"
+  ],
+  "author": "Samir Rodrigues",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamirRodrigues/SimpleChat/issues"
+  },
+  "homepage": "https://github.com/SamirRodrigues/SimpleChat#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
