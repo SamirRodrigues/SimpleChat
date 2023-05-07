@@ -10,9 +10,11 @@
       #input:focus { outline: none; }
       #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
 
-      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages { list-style-type: none; margin: 0.1rem; padding: 0; background: #333;}
       #messages > li { padding: 0.5rem 1rem; }
-      #messages > li:nth-child(odd) { background: #efefef; }
+
+      #mymessages { list-style-type: none; margin: 0.1rem; padding: 0; text-align: right; background: #00ce2d;}
+      #mymessages > li { padding: 0.5rem 1rem; }
     </style>
   </head>
   <body>
@@ -31,13 +33,21 @@
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         if (input.value) {
-          socket.emit('chat message', input.value);
+            socket.emit('chat message', input.value);
+            socket.emit('my chat message', input.value);
           input.value = '';
         }
       });
     
       socket.on('chat message', function(msg) {
         var item = document.createElement('li');
+        item.textContent = msg;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+      socket.on('my chat message', function(msg) {
+        var item = document.createElement('li');
+        item.id = "mymessages";
         item.textContent = msg;
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
